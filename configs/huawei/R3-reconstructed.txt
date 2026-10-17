@@ -1,0 +1,17 @@
+# 据已执行命令整理，非设备完整导出。save 提示后另外回答 y。
+system-view
+sysname gxyR3
+interface GE1/0/0
+undo portswitch
+undo shutdown
+ip address 192.168.2.2 24
+quit
+interface GE1/0/1
+undo portswitch
+undo shutdown
+ip address 10.0.0.2 24
+quit
+ip route-static 192.168.3.0 24 192.168.2.1
+commit
+return
+save

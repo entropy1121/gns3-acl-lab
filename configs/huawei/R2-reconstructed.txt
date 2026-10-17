@@ -1,0 +1,19 @@
+# 据已执行命令整理，非 display current-configuration 的完整导出。
+# 每行等待提示符后再执行；save 提示后另外回答 y。
+system-view
+sysname gxyR2
+interface GE1/0/0
+undo portswitch
+undo shutdown
+ip address 192.168.1.2 24
+quit
+interface GE1/0/1
+undo portswitch
+undo shutdown
+ip address 10.0.0.1 24
+quit
+ip route-static 192.168.3.0 24 192.168.1.1
+commit
+return
+save
+# 临时 test2 接口 GE1/0/2 的 192.168.100.254/24 不属于核心课件拓扑。

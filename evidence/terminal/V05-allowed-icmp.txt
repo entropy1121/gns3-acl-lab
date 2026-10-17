@@ -1,0 +1,9 @@
+说明：以下为实验者在聊天中粘贴的终端输出摘录，按主题整理；不是终端自动录制的完整会话。D01 省略了 ARP 表头及其他条目。V04 删除了粘贴到输入缓冲区的无关残留字符。其余节选未补写测试结果。
+
+PC1> ping 192.168.2.2
+
+84 bytes from 192.168.2.2 icmp_seq=1 ttl=254 time=5.037 ms
+84 bytes from 192.168.2.2 icmp_seq=2 ttl=254 time=2.196 ms
+84 bytes from 192.168.2.2 icmp_seq=3 ttl=254 time=2.147 ms
+84 bytes from 192.168.2.2 icmp_seq=4 ttl=254 time=2.743 ms
+84 bytes from 192.168.2.2 icmp_seq=5 ttl=254 time=1.916 ms

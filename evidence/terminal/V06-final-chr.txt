@@ -1,0 +1,47 @@
+说明：以下为实验者在聊天中粘贴的终端输出摘录，按主题整理；不是终端自动录制的完整会话。D01 省略了 ARP 表头及其他条目。V04 删除了粘贴到输入缓冲区的无关残留字符。其余节选未补写测试结果。
+
+[admin@CHR] > /ip address print
+Columns: ADDRESS, NETWORK, INTERFACE, VRF
+# ADDRESS         NETWORK      INTERFACE  VRF
+0 192.168.1.1/24  192.168.1.0  ether1     main
+1 192.168.2.1/24  192.168.2.0  ether2     main
+2 192.168.3.1/24  192.168.3.0  ether3     main
+[admin@CHR] > /ip route print
+Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, s - STATIC
+Columns: DST-ADDRESS, GATEWAY, ROUTING-TABLE, DISTANCE
+#     DST-ADDRESS     GATEWAY      ROUTING-TABLE  DISTANCE
+0  As 10.0.0.0/24     192.168.1.2  main                  1
+  DAc 192.168.1.0/24  ether1       main                  0
+  DAc 192.168.2.0/24  ether2       main                  0
+  DAc 192.168.3.0/24  ether3       main                  0
+[admin@CHR] > /ip firewall filter print detail
+Flags: X - DISABLED, I - INVALID; D - DYNAMIC
+ 0    ;;; ACL1
+      chain=forward action=drop src-address=10.0.0.0/24 dst-address=192.168.3.0/24
+
+ 1    ;;; ACL2-WEB
+      chain=forward action=drop protocol=tcp src-address=192.168.3.0/24
+      dst-address=10.0.0.0/24 dst-port=80
+
+ 2    ;;; ACL3-FTP
+      chain=forward action=drop protocol=tcp src-address=192.168.3.0/24
+      dst-address=!192.168.3.0/24 dst-port=21
+[admin@CHR] > /ip firewall filter print stats
+Columns: CHAIN, ACTION, BYTES, PACKETS
+# CHAIN    ACTION  BYTES  PACKETS
+;;; ACL1
+0 forward  drop      420        5
+;;; ACL2-WEB
+1 forward  drop      900       15
+;;; ACL3-FTP
+2 forward  drop    1 800       30
+[admin@CHR] > /export file=Lab2_ACL
+[admin@CHR] > /system backup save name=Lab2_ACL
+Saving system configuration
+Configuration backup saved
+[admin@CHR] > /file print
+Columns: NAME, TYPE, SIZE, LAST-MODIFIED
+# NAME             TYPE       SIZE     LAST-MODIFIED
+0 Lab2_ACL.rsc     script     979      2026-10-17 13:30:48
+1 Lab2_ACL.backup  backup     21.2KiB  2026-10-17 13:30:48
+2 skins            directory           2026-10-17 13:13:24

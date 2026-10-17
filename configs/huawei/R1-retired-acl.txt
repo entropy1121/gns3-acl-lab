@@ -1,0 +1,7 @@
+# 已停用旧 CE12800 R1 的历史配置片段，不参与最终过滤。
+# 下面 ACL 曾成功创建并 commit，但未确认接口应用方式。
+acl number 3000
+rule 5 deny ip source 10.0.0.0 0.0.0.255 destination 192.168.3.0 0.0.0.255
+rule 10 permit ip
+quit
+commit

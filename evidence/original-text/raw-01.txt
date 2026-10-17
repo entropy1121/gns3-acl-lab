@@ -1,0 +1,273 @@
+  Next startup patch package:                NULL
+<gxyR1>display interface GE1/0/0
+GE1/0/0 current state : UP (ifindex: 5)
+Line protocol current state : UP
+Last line protocol up time : 2026-10-17 11:08:14
+Description:
+Route Port,The Maximum Transmit Unit is 1500,The Maximum Frame Length is 9216
+Internet Address is 192.168.1.1/24
+IP Sending Frames' Format is PKTFMT_ETHNT_2, Hardware address is 00d1-cfce-40d5
+Last physical up time   : 2026-10-17 11:08:14
+Last physical down time : 2026-10-17 11:05:33
+Current system time: 2026-10-17 11:19:19
+Statistics last cleared:never
+    Last 300 seconds input rate: 0 bits/sec, 0 packets/sec
+    Last 300 seconds output rate: 0 bits/sec, 0 packets/sec
+    Input peak rate 0 bits/sec, Record time: -
+    Output peak rate 0 bits/sec, Record time: -
+    Input: 0 bytes, 0 packets
+    Output: 0 bytes, 1 packets
+    Input:
+      Unicast: 0 packets, Multicast: 0 packets
+      Broadcast: 0 packets, JumboOctets: 0 packets
+      CRC: 0 packets, Symbol: 0 packets
+      Overrun: 0 packets, InRangeLength: 0 packets
+      LongPacket: 0 packets, Jabber: 0 packets, Alignment: 0 packets
+<gxyR1>system-view
+Enter system view, return user view with return command.
+[~gxyR1]interface MEth0/0/0
+[~gxyR1-MEth0/0/0]ip address 172.31.255.1 30
+[*gxyR1-MEth0/0/0]quit
+[*gxyR1]commit
+[~gxyR1]return
+<gxyR1>system-view
+Enter system view, return user view with return command.
+[~gxyR1]interface MEth0/0/0
+[~gxyR1-MEth0/0/0]ip address 172.31.255.1 30
+[~gxyR1-MEth0/0/0]quit
+[~gxyR1]commit
+[~gxyR1]return
+<gxyR1>
+<gxyR1>display ip interface brief
+*down: administratively down
+!down: FIB overload down
+^down: standby
+(l): loopback
+(s): spoofing
+(d): Dampening Suppressed
+The number of interface that is UP in Physical is 5
+The number of interface that is DOWN in Physical is 0
+The number of interface that is UP in Protocol is 5
+The number of interface that is DOWN in Protocol is 0
+Interface                   IP Address/Mask    Physical Protocol VPN
+GE1/0/0                     192.168.1.1/24     up       up       --
+GE1/0/1                     192.168.2.1/24     up       up       --
+GE1/0/2                     192.168.3.1/24     up       up       --
+MEth0/0/0                   172.31.255.1/30    up       up       --
+NULL0                       unassigned         up       up(s)    --
+<gxyR1>system-view
+Enter system view, return user view with return command.
+[~gxyR1]interface MEth0/0/0
+[~gxyR1-MEth0/0/0]undo ip address
+[*gxyR1-MEth0/0/0]quit
+[*gxyR1]commit
+[~gxyR1]return
+<gxyR1>ping 192.168.2.2
+  PING 192.168.2.2: 56  data bytes, press CTRL_C to break
+    Request time out
+    Request time out
+    Request time out
+    Request time out
+    Request time out
+
+  --- 192.168.2.2 ping statistics ---
+    5 packet(s) transmitted
+    0 packet(s) received
+    100.00% packet loss
+<gxyR1>system-view
+Enter system view, return user view with return command.
+[~gxyR1]ip route-static 10.0.0.0 24 192.168.1.2
+[*gxyR1]commit
+[~gxyR1]return
+<gxyR1>save
+Warning: The current configuration will be written to the device. Continue? [Y/N]:y
+Now saving the current configuration to the slot 17
+Info: Save the configuration successfully.
+<gxyR1>system-view
+Enter system view, return user view with return command.
+[~gxyR1]interface GE1/0/2
+[~gxyR1-GE1/0/2]traffic-filter ?
+                ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1-GE1/0/2]traffic-filter
+                ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1-GE1/0/2]traffic-policy ?
+                ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1-GE1/0/2]traffic-policy quit
+                ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1-GE1/0/2]traffic ?
+                ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1-GE1/0/2]traffic
+                ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1-GE1/0/2]
+[~gxyR1-GE1/0/2]quit
+[~gxyR1]traffic ?
+        ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1]traffic
+        ^
+Error: Unrecognized command found at '^' position.
+[~gxyR1]?
+Current view commands:
+  aaa                    AAA(Authentication,Authorization,Accounting) view
+  abort                  Abort the configuration which committed on a trial
+                         basis
+  acl                    Specify ACL configuration information
+  admin                  Indicate the LS/VS admin view
+  alarm                  Failure manager module
+  alarm-threshold        Alarm threshold
+  anti-attack            Specify anti-attack configurations
+  arp                    ARP module
+  as-notation            The AS notation
+  bfd                    Specify Bidirectional Forwarding Detection (BFD)
+  bgp                    Border Gateway Protocol(BGP)
+  bmp                    BMP Monitoring Protocol(BMP)
+  bridge-domain          Bridge-domain
+  cfm                    Connectivity fault management
+  clear                  Clear configuration
+  clock                  Clock status and configuration information
+  command                Command line
+  command-privilege      Specify the command level
+  commit                 Commit the configuration to the system
+  configuration          Configuration file
+  device                 Device information
+  dhcp                   Dynamic host configuration protocol
+  dhcpv6                 Dynamic host configuration protocol for IPv6
+  diagnose               Enter the diagnose view
+  display                Display current system information
+  dldp                   Device Link Detection Protocol
+  dns                    Specify domain name system
+  domain                 Default domain
+  dot1x                  802.1x authentication
+  dsa                    Display DSA module status and configuration information
+  ecc                    Specify ECC module configuration information
+  efm                    EFM module
+  erps                   Ethernet ring protection switching
+  error-down             The interface was shut down because of an error event
+  evn                    Ethernet Virtual Network
+  evpn                   Evpn Global Config
+  evpn-overlay           EVPN-overlay
+  execute                Batch command
+  explicit-path          Specify path explicitly
+  fips-mode              FIPS mode
+  ftp                    FTP module
+  grpc                   GRPC module
+  gtsm                   The generalized TTL security mechanism
+  header                 Define the login banner
+  host                   Host information
+  hotkey                 Specify hotkey configuration information
+  http                   Enter HTTP view
+  hwtacacs               HWTACACS module
+  icmp                   ICMP protocol
+  igmp                   Specify IGMP configuration information
+  info-center            Specify message output configuration information
+  interface              Specify the interface configuration view
+  ip                     Specify IP configurations for the system
+  ipsec                  Specify IPsec configuration information
+  ipv4                   IPv4 configuration commands
+  ipv6                   Direct route IPv6 component
+  isis                   Intermediate System to Intermediate System (ISIS)
+                         routes
+  keychain               Keychain authentication
+  l2protocol-tunnel      Layer 2 protocol tunnel
+  lacp                   Link aggregation control protocol
+  language               Specify the system language character set
+  lldp                   Link Layer Discovery Protocol
+  lspv                   Lsp verification
+  mac-address            Mac address
+  mac-forced-forwarding  MAC-Forced Forwarding
+  management-plane       Management plane
+  mld                    Specify MLD configuration information
+  monitor                Monitor
+  monitor-link           Monitor link configuration information
+  mpls                   Multiprotocol Label Switching(MPLS) status and
+                         configuration information
+  msdp                   Specify Multicast Source Discovery Protocol (MSDP)
+                         configuration information
+  multicast              Multicast information
+  multicast-domain       Specify multicast-domain configuration information
+  netconf                NETCONF view
+  nqa                    Network Quality Analysis
+  ntp                    Specify NTP(Network Time Protocol) configuration
+                         information
+  oam-mgr                Oam-mgr view
+  ops                    Open Programmability System (OPS)
+  ospf                   Open Shortest Path First (OSPF)
+  ospfv3                 OSPF version 3 for IPv6
+  pads                   Protocol aided diagnosis system
+  path-constraint        Configuration of path constraint
+  pim                    Specify Protocol Independent Multicast (PIM)
+                         configuration information
+  ping                   Ping function
+  pm                     Performance management
+  port-group             Port-group
+  portswitch             Switch port between router and switch mode
+  quit                   Exit from the current command view
+  radius                 RADIUS module
+  refresh                Refresh candidate configuration
+  reset                  Reset operation
+  return                 Exit to user view
+  rip                    Specify RIP(Routing Information Protocol) configuration
+                         information
+  ripng                  Specify RIPng(Routing Information Protocol for
+                         IPv6)configuration information
+  rmon                   Specify RMON configuration
+  route                  Routing module
+  route-policy           Create a route policy or enter the route policy command
+                         mode
+  router                 Configure router information
+  rsa                    Specify RSA module configuration information
+  run                    Execute command of user view
+  scp                    Set SCP service attribute
+  screen-length          Set the number of lines displayed on a screen
+  screen-width           Set the number of words displayed on a line
+  security               Set security configuration
+  segment-routing        Segment Routing
+  set
+  sftp                   Set SFTP service attribute
+  shutdown               Shutdown the specified subinterfaces
+  slave                  Backup switch from master to slave
+  smart-link             Smart link configuration information
+  snetconf               Set SNETCONF service attribute
+  snmp-agent             Specify SNMP(Simple Network Management Protocol)
+                         configuration information
+  ssh                    Set the SSH (secure shell) configuration attribute
+  ssl                    Security socket layer
+  ssm-mapping            Policy of SSM Mapping
+  stelnet                Set Stelnet service attribute
+  stp                    Specify Spanning Tree Protocol (STP) configuration
+                         information
+  subinterface           Subinterface
+  sysname                Specify a host name
+  tcp                    Specify TCP(Transmission Control Protocol)
+                         configuration information
+  telemetry              Telemetry module
+  telnet                 Establish a Telnet connection
+  tftp                   TFTP module
+  time-range             Specify time-range configuration information
+  timestamp              Time stamp switch
+  trace                  Trace route (switch) to host at the data link layer
+  tracert                Trace route to host
+  trill                  Transparent Interconnection of Lots of Links
+  trunk                  Trunk interface
+  trunk-member           The member of trunk
+  tunnel                 Tunnel
+  tunnel-policy          Tunnel policy
+  tunnel-selector        Tunnel policy selector
+  undo                   Cancel current setting
+  user-bind              User binding
+  user-interface         Configure the user terminal interface
+  vlan                   Virtual LAN
+  vm-manager             Virtual Machine (VM) manager view
+  vni                    VXLAN network identifier
+  vrrp                   Specify configuration information of VRRP
+  vrrp6                  Specify configuration information of VRRP6
+  vsi                    Specify Virtual Switching Instance (VSI) configuration
+                         information
+  vxlan                  Virtual eXtensible Local Area Network
+  ztpv2                  Zero touch protocol version 2

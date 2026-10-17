@@ -1,0 +1,12 @@
+# 系统镜像与设备二进制备份不进入本实验公开仓库
+*.qcow2
+*.img
+*.vmdk
+*.iso
+*.backup
+*.dat
+private/
+__pycache__/
+~$*.docx
+.DS_Store
+Thumbs.db

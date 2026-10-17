@@ -1,0 +1,10 @@
+# CHR 控制台中的只读验证命令
+/ip address print
+/ip route print
+/ip firewall filter print detail
+/ip firewall filter print stats
+/file print
+
+# 单独执行以下两行可在设备内部创建导出与备份
+/export file=Lab2_ACL
+/system backup save name=Lab2_ACL

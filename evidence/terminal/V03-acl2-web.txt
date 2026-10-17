@@ -1,0 +1,17 @@
+说明：以下为实验者在聊天中粘贴的终端输出摘录，按主题整理；不是终端自动录制的完整会话。D01 省略了 ARP 表头及其他条目。V04 删除了粘贴到输入缓冲区的无关残留字符。其余节选未补写测试结果。
+
+PC1> ping 10.0.0.1 -3 -p 80 -c 5
+
+Connect   80@10.0.0.1 timeout
+Connect   80@10.0.0.1 timeout
+Connect   80@10.0.0.1 timeout
+Connect   80@10.0.0.1 timeout
+Connect   80@10.0.0.1 timeout
+
+[admin@CHR] > /ip firewall filter print stats
+Columns: CHAIN, ACTION, BYTES, PACKETS
+# CHAIN    ACTION  BYTES  PACKETS
+;;; ACL1
+0 forward  drop      420        5
+;;; ACL2-WEB
+1 forward  drop      900       15
