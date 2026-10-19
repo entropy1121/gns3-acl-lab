@@ -1,0 +1,13 @@
+phase,metric,value,unit,evidence
+baseline,ping_pc2_to_pc1,5/5,replies,VPCS console
+baseline,dynamic_mac_entries_pc1_pc2,2,addresses,Bridge host print
+static,static_pc1,1,entry,Bridge host print
+allow,accept_packets,6,packets,Bridge filter print stats
+allow,accept_bytes,470,bytes,Bridge filter print stats
+invalid,drop_packets,3,packets,Bridge filter print stats
+invalid,drop_bytes,150,bytes,Bridge filter print stats
+before_mac_test,new_mac_sources_sent,12,addresses,Scapy experiment design
+before_mac_test,new_mac_sources_learned,12,addresses,Bridge host print
+after_learn_no,new_mac_sources_tested,12,addresses,Scapy experiment procedure
+after_learn_no,new_mac_sources_learned,0,addresses,Bridge host print
+final,ping_pc2_to_pc1,5/5,replies,VPCS console after PC1 cable restored
